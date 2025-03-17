@@ -13,3 +13,137 @@
  *= require_tree .
  *= require_self
  */
+
+/* Colors */
+:root {
+  --background-color: #f0f0f0;
+  --text-color: black;
+  --primary-color: #028658;
+  --secondary-color: #214c6c;
+  --error-color: #ff0000;
+}
+
+/* Base Styles */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-color);
+}
+
+header {
+  background-color: var(--primary-color);
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header a {
+  color: white;
+}
+
+header,
+aside,
+main {
+  padding: 1rem;
+}
+
+  aside.flash {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 1rem;
+  }
+
+a {
+  color: var(--primary-color);
+}
+
+a.secondary {
+  color: var(--secondary-color);
+}
+
+.button,
+button,
+input[type="submit"] {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.event__actions .button_to {
+  display: inline;
+}
+
+/* Forms */
+.form {
+  max-width: 50%;
+}
+
+.form-row {
+  margin-bottom: 1rem;
+}
+
+.form-row__error {
+  color: var(--error-color);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.form-row label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-row input,
+.form-row textarea {
+  width: 100%;
+}
+
+.field_with_errors label {
+  color: var(--error-color);
+}
+
+.field_with_errors input,
+.field_with_errors textarea,
+.field_with_errors select {
+  border-color: var(--error-color);
+}
+
+/* Event Cards */
+.event-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+}
+
+.event {
+  background-color: var(--background-color);
+  padding: 1rem;
+}
+
+  .event__name {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .event__place {
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+
+  .event__description,
+  .event__guests,
+  .event__dates {
+    margin: 0.5rem 0;
+  }
+
+    .event__dates__date {
+      font-weight: bold;
+    }

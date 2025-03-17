@@ -1,0 +1,10 @@
+<li class="event">
+  <h3 class="event__name"><%= link_to event.name, event %></h3>
+  <div class="event__place"><%= event.place.name %></div>
+  <div class="event__description"><%= event.description %></div>
+  <div class="event__dates">
+    <span class="event__dates__date"><%= event.starts_at.to_fs(:long) %></span>
+    to
+    <span class="event__dates__date"><%= event.ends_at.to_fs(:long) %></span>
+  </div>
+</li>

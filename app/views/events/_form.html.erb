@@ -1,0 +1,53 @@
+<%= form_with model: event, class: "form" do |form| %>
+  <div class="form-row">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% if event.errors[:name].any? %>
+      <p class="form-row__error">
+        <%= event.errors.where(:name).map(&:full_message).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <% if event.errors[:description].any? %>
+      <p class="form-row__error">
+        <%= event.errors.where(:name).map(&:full_message).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :place_id %>
+    <%= form.collection_select :place_id, Place.all, :id, :name %>
+    <% if event.errors[:place_id].any? %>
+      <p class="form-row__error">
+        <%= event.errors.where(:place_id).map(&:full_message).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :starts_at %>
+    <%= form.datetime_select :starts_at %>
+    <% if event.errors[:starts_at].any? %>
+      <p class="form-row__error">
+        <%= event.errors.where(:starts_at).map(&:full_message).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+
+  <div class="form-row">
+    <%= form.label :ends_at %>
+    <%= form.datetime_select :ends_at %>
+    <% if event.errors[:ends_at].any? %>
+      <p class="form-row__error">
+        <%= event.errors.where(:ends_at).map(&:full_message).to_sentence %>
+      </p>
+    <% end %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

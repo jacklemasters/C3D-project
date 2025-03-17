@@ -1,0 +1,28 @@
+<section class="event-details">
+  <h2>Event Details</h2>
+
+  <h3><%= @event.name %></h3>
+
+  <div class="event__dates">
+    <span class="event__dates__date"><%= @event.starts_at.to_fs(:long) %></span>
+    to
+    <span class="event__dates__date"><%= @event.ends_at.to_fs(:long) %></span>
+  </div>
+
+  <div>Location: <span class="event__place"><%= @event.place.name %></span></div>
+
+  <div class="event__description"><%= @event.description %></div>
+
+  <div class="event__actions">
+    <%= link_to "Edit", edit_event_path(@event), class: "button" %>
+    <%= button_to "Delete", event_path(@event), class: "button", method: :delete, confirm: "Are you sure?" %>
+  </div>
+</section>
+
+<section class="event-guests">
+  <h2>Guests</h2>
+
+  <div id="x-event-guests-manager">
+    Guests Manager Goes Here
+  </div>
+</section>
