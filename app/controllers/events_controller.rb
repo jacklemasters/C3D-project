@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
+
   def index
     @events = Event.includes(:place).all # eager loading of places
   end
 
-  def show
-    @event = Event.find(params[:id])
-    
+  def show    
     respond_to do |format|
       format.html
       format.json { render json: @event.as_json(include: :guests) }
@@ -26,11 +26,9 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @event = Event.find(params[:id])
   end
 
   def update
-    @event = Event.find(params[:id])
     if @event.update(event_params)
       redirect_to @event, notice: "Event updated"
     else
@@ -39,12 +37,14 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path, notice: "Event deleted"
   end
 
   private
+  def set_event
+    @event = Event.find(params[:id])
+  end
 
   def event_params
     params.require(:event).permit(:name, :description, :place_id, :starts_at, :ends_at)
