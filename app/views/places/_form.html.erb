@@ -1,0 +1,25 @@
+<%= form_with(model: place, local: true, class: "form") do |form| %>
+  <% if place.errors.any? %>
+    <div class="error-messages">
+      <h3><%= pluralize(place.errors.count, "error") %> prohibited this place from being saved:</h3>
+      <ul>
+        <% place.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <%= form.label :name %>
+    <%= form.text_field :name, required: true %>
+    <% if place.errors[:name].any? %>
+      <div class="form-row__error"><%= place.errors[:name].join(", ") %></div>
+    <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= form.submit class: "button" %>
+    <%= link_to "Cancel", places_path, class: "button secondary" %>
+  </div>
+<% end %> 

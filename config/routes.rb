@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   end
   
   resources :guests, only: [:destroy]
+  
+  resources :places
 end

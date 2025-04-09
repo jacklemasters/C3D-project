@@ -1,0 +1,31 @@
+<h2>Manage Places</h2>
+
+<div class="actions">
+  <%= link_to "Create New Place", new_place_path, class: "button" %>
+</div>
+
+<% if @places.any? %>
+  <table class="places-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Associated Events</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @places.each do |place| %>
+        <tr>
+          <td><%= place.name %></td>
+          <td><%= place.events.count %></td>
+          <td class="actions">
+            <%= link_to "Edit", edit_place_path(place), class: "button" %>
+            <%= button_to "Delete", place_path(place), method: :delete, class: "button delete", form: { data: { turbo_confirm: "Are you sure? This cannot be undone." } }, disabled: place.events.any? %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No places have been created yet. Click "Create New Place" to add one.</p>
+<% end %>
