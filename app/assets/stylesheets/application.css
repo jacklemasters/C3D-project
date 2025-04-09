@@ -75,6 +75,20 @@ input[type="submit"] {
   font-size: 1rem;
 }
 
+.button.secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.button.delete {
+  background-color: var(--error-color);
+}
+
+.button.delete:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .event__actions .button_to {
   display: inline;
 }
@@ -227,4 +241,48 @@ input[type="submit"] {
   padding: 0.25rem 0.5rem;
   font-size: 0.85rem;
   cursor: pointer;
+}
+
+/* Places Table */
+.actions {
+  margin-bottom: 1.5rem;
+}
+
+.places-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.places-table th,
+.places-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.places-table th {
+  background-color: var(--background-color);
+  font-weight: bold;
+}
+
+.places-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+.places-table td.actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0;
+}
+
+.places-table td.actions .button {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.form-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
 }
