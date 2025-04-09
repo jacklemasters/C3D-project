@@ -1,5 +1,32 @@
 <h2>Upcoming Events</h2>
 
+<div class="sort-controls">
+  <div class="sort-label">Sort by:</div>
+  <div class="sort-options">
+    <%= link_to "Name", events_path(sort_by: "name",
+              direction: (@sort_by == :name && @sort_direction == :asc) ? "desc" : "asc"), class: "sort-option #{@sort_by == :name ? 'active' : ''}" %>
+    
+    <%= link_to "Place", events_path(sort_by: "place",
+              direction: (@sort_by == :place && @sort_direction == :asc) ? "desc" : "asc"), class: "sort-option #{@sort_by == :place ? 'active' : ''}" %>
+    
+    <%= link_to "Date", events_path(sort_by: "starts_at",
+              direction: (@sort_by == :starts_at && @sort_direction == :asc) ? "desc" : "asc"), 
+              class: "sort-option #{@sort_by == :starts_at ? 'active' : ''}" %>
+    
+    <%= link_to "Guest Count", events_path(sort_by: "guests",
+              direction: (@sort_by == :guests && @sort_direction == :asc) ? "desc" : "asc"), 
+              class: "sort-option #{@sort_by == :guests ? 'active' : ''}" %>
+  </div>
+  
+  <div class="sort-direction">
+    <% if @sort_direction == :asc %>
+      <%= link_to "↑", events_path(sort_by: @sort_by, direction: "desc"), class: "sort-direction-arrow" %>
+    <% else %>
+      <%= link_to "↓", events_path(sort_by: @sort_by, direction: "asc"), class: "sort-direction-arrow" %>
+    <% end %>
+  </div>
+</div>
+
 <ul class="event-list">
   <%= render @events %>
 </ul>

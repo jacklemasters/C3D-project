@@ -2,7 +2,24 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.includes(:place).all # eager loading of places
+    @events = Event.includes(:place) # eager loading of places
+    
+    @sort_by        = params[:sort_by]&.to_sym || :starts_at
+    @sort_direction = params[:direction] == 'desc' ? :desc : :asc
+    
+    sort_columns = {
+      name:      'name',
+      place:     'places.name',
+      starts_at: 'starts_at',
+      guests:    'guests_count'
+    }
+    
+    if sort_columns.key?(@sort_by)
+      column  = sort_columns[@sort_by]
+      @events = @events.order(column => @sort_direction)
+    else
+      @events = @events.order(starts_at: :asc) # default sort by start date
+    end
   end
 
   def show    

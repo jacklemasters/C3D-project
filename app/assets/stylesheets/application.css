@@ -17,26 +17,26 @@
 /* Colors */
 :root {
   --background-color: #f0f0f0;
-  --text-color: black;
-  --primary-color: #028658;
-  --secondary-color: #214c6c;
-  --error-color: #ff0000;
+  --text-color:       black;
+  --primary-color:    #028658;
+  --secondary-color:  #214c6c;
+  --error-color:      #ff0000;
 }
 
 /* Base Styles */
 body {
   font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  color: var(--text-color);
+  margin:      0;
+  padding:     0;
+  color:       var(--text-color);
 }
 
 header {
   background-color: var(--primary-color);
-  color: white;
+  color:          white;
 
-  display: flex;
-  align-items: center;
+  display:         flex;
+  align-items:     center;
   justify-content: space-between;
 }
 
@@ -52,8 +52,8 @@ main {
 
   aside.flash {
     background-color: var(--secondary-color);
-    color: white;
-    padding: 1rem;
+    color:          white;
+    padding:          1rem;
   }
 
 a {
@@ -68,16 +68,16 @@ a.secondary {
 button,
 input[type="submit"] {
   background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  font-size: 1rem;
+  color:          white;
+  border:           none;
+  padding:          0.5rem 1rem;
+  text-decoration:  none;
+  font-size:        1rem;
 }
 
 .button.secondary {
   background-color: var(--secondary-color);
-  color: white;
+  color:          white;
 }
 
 .button.delete {
@@ -86,11 +86,57 @@ input[type="submit"] {
 
 .button.delete:disabled {
   background-color: #ccc;
-  cursor: not-allowed;
+  cursor:             not-allowed;
 }
 
 .event__actions .button_to {
   display: inline;
+}
+
+/* Sort Controls */
+.sort-controls {
+  display:          flex;
+  align-items:      center;
+  margin-bottom:    1.5rem;
+  background-color: var(--background-color);
+  padding:          0.75rem 1rem;
+  border-radius:    4px;
+}
+
+.sort-label {
+  font-weight:  bold;
+  margin-right: 1rem;
+}
+
+.sort-options {
+  display:   flex;
+  flex-wrap: wrap;
+  gap:       1rem;
+}
+
+.sort-option {
+  padding:         0.25rem 0.5rem;
+  text-decoration: none;
+  border-radius:   4px;
+}
+
+.sort-option:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.sort-option.active {
+  background-color: var(--primary-color);
+  color:          white;
+}
+
+.sort-direction {
+  margin-left: auto;
+}
+
+.sort-direction-arrow {
+  font-size:       1.25rem;
+  text-decoration: none;
+  padding:         0 0.5rem;
 }
 
 /* Forms */
@@ -103,13 +149,13 @@ input[type="submit"] {
 }
 
 .form-row__error {
-  color: var(--error-color);
-  font-size: 0.9rem;
+  color:      var(--error-color);
+  font-size:  0.9rem;
   font-style: italic;
 }
 
 .form-row label {
-  display: block;
+  display:       block;
   margin-bottom: 0.5rem;
 }
 
@@ -131,8 +177,8 @@ input[type="submit"] {
 /* Event Cards */
 .event-list {
   list-style: none;
-  padding: 0;
-  display: grid;
+  padding:    0;
+  display:    grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
 }
@@ -143,12 +189,12 @@ input[type="submit"] {
 }
 
   .event__name {
-    margin: 0;
+    margin:    0;
     font-size: 1.5rem;
   }
 
   .event__place {
-    font-size: 1.1rem;
+    font-size:  1.1rem;
     font-style: italic;
   }
 
@@ -169,9 +215,9 @@ input[type="submit"] {
 
 .guest-form {
   background-color: var(--background-color);
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 4px;
+  padding:          1rem;
+  margin-bottom:    1.5rem;
+  border-radius:    4px;
 }
 
 .form-group {
@@ -179,15 +225,15 @@ input[type="submit"] {
 }
 
 .form-group label {
-  display: block;
+  display:       block;
   margin-bottom: 0.5rem;
-  font-weight: bold;
+  font-weight:   bold;
 }
 
 .form-group input {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #ccc;
+  width:         100%;
+  padding:       0.5rem;
+  border:        1px solid #ccc;
   border-radius: 4px;
 }
 
@@ -196,8 +242,8 @@ input[type="submit"] {
 }
 
 .error-message {
-  color: var(--error-color);
-  font-size: 0.85rem;
+  color:      var(--error-color);
+  font-size:  0.85rem;
   margin-top: 0.25rem;
 }
 
@@ -206,22 +252,22 @@ input[type="submit"] {
 }
 
 .guest-list h3 {
-  margin-top: 0;
-  border-bottom: 1px solid #ddd;
+  margin-top:     0;
+  border-bottom:  1px solid #ddd;
   padding-bottom: 0.5rem;
 }
 
 .guest-list ul {
   list-style: none;
-  padding: 0;
+  padding:    0;
 }
 
 .guest-item {
-  display: flex;
+  display:         flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid #eee;
+  align-items:     center;
+  padding:         0.75rem 0;
+  border-bottom:   1px solid #eee;
 }
 
 .guest-name {
@@ -229,18 +275,18 @@ input[type="submit"] {
 }
 
 .guest-email {
-  color: #666;
+  color:   #666;
   font-size: 0.9rem;
 }
 
 .remove-button {
   background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.25rem 0.5rem;
-  font-size: 0.85rem;
-  cursor: pointer;
+  color:            white;
+  border:             none;
+  border-radius:      4px;
+  padding:            0.25rem 0.5rem;
+  font-size:          0.85rem;
+  cursor:             pointer;
 }
 
 /* Places Table */
@@ -249,21 +295,21 @@ input[type="submit"] {
 }
 
 .places-table {
-  width: 100%;
+  width:           100%;
   border-collapse: collapse;
-  margin-top: 1rem;
+  margin-top:      1rem;
 }
 
 .places-table th,
 .places-table td {
-  padding: 0.75rem;
+  padding:       0.75rem;
   border-bottom: 1px solid #ddd;
-  text-align: left;
+  text-align:    left;
 }
 
 .places-table th {
   background-color: var(--background-color);
-  font-weight: bold;
+  font-weight:      bold;
 }
 
 .places-table tr:hover {
@@ -271,18 +317,18 @@ input[type="submit"] {
 }
 
 .places-table td.actions {
-  display: flex;
-  gap: 0.5rem;
+  display:       flex;
+  gap:           0.5rem;
   margin-bottom: 0;
 }
 
 .places-table td.actions .button {
-  padding: 0.25rem 0.5rem;
+  padding:   0.25rem 0.5rem;
   font-size: 0.9rem;
 }
 
 .form-actions {
   margin-top: 1.5rem;
-  display: flex;
-  gap: 1rem;
+  display:    flex;
+  gap:        1rem;
 }
