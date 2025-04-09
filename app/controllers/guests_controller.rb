@@ -1,6 +1,8 @@
 class GuestsController < ApplicationController
   before_action :set_event, only: [:create]
   before_action :set_guest, only: [:destroy]
+  skip_before_action :verify_authenticity_token, only: [:create, :destroy], if: -> { request.format.json? }
+
   def create
     @guest = @event.guests.build(guest_params)
 
