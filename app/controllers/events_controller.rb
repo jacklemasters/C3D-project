@@ -5,6 +5,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.json { render json: @event.as_json(include: :guests) }
+    end
   end
 
   def new
