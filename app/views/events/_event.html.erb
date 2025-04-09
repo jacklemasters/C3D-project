@@ -7,4 +7,7 @@
     to
     <span class="event__dates__date"><%= event.ends_at.to_fs(:long) %></span>
   </div>
+  <div class="event__guests">
+    <%= pluralize(event.guests_count, 'guest') %>
+  </div>
 </li>
